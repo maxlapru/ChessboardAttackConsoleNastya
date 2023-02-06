@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 // 06.02.2023 20:04 - Ноутбук
 // 06.02.2023 20:07 - Комп
+// 06.02.2023 20:11 - Получение и редактирование на ноутбуке после компа
 
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
