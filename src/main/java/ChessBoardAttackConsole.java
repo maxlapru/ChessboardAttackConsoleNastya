@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 // 06.02.2023 20:04 - Ноутбук
+// 06.02.2023 20:07 - Комп
 
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
