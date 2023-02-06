@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+// 06.02.2023 20:04 - Ноутбук
+
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
     private static final char[] FIGURES = {'K', 'Q', 'B', 'B', 'N', 'N', 'R', 'R', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'};
