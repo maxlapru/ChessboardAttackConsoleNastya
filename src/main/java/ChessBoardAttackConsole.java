@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
-    private static final char[] FIGURES = {'K', 'Q', 'B', 'B', 'N', 'N', 'R', 'R', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'};
+    private static final char[] FIGURES = {'K','Q','B','B','N','N','R','R','P','P','P','P','P','P','P','P'};
     private static final char DOT_EMPTY = '*';
     private static final char DOT_OPEN = ' ';
     private static final boolean DEBUG_MODE = false;
