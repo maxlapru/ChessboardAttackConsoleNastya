@@ -4,15 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-// 06.02.2023 20:04 - Ноутбук
-// 06.02.2023 20:07 - Комп
-// 06.02.2023 20:11 - Получение и редактирование на ноутбуке после компа
-// 06.02.2023 20:13 - Повторное получение на компе и редактирование
-// 08.02.2023 12:57 - Редактирование и работа на ноутбуке
-// 08.02.2023 13:13 - Работа Насти
-// Настюшка самая красивая девочка во вселенной.
-// Спасибо, очень приятно
-
+// Убираем все тесты, работаем :)
 
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
@@ -110,12 +102,15 @@ public class ChessBoardAttackConsole {
         if (isCellEmpty(coordY, coordX) && isCellValid(coordY, coordX)){
             chessBoard[coordY][coordX] = DOT_OPEN;
         } else {
+            // просто поставить печать "вы проиграли" - пока так
             theEnd();
         }
         printBoard(true);
         return (isCellOpen(coordY, coordX));
     }
 
+    // Процедура лишена смысла, вывести можно и в цикле.
+    // убрать, сейчас просто тестируем ввод и проверку координат
     private static void theEnd(){
         System.out.println("Вы проиграли");
     }
