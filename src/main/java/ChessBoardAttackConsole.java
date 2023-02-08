@@ -5,8 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 // Убираем все тесты, работаем :)
-// Чтобы обновилось
-
+//111
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
     private static final char[] FIGURES = {'K','Q','B','B','N','N','R','R','P','P','P','P','P','P','P','P'};
