@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 // Убираем все тесты, работаем :)
+// Чтобы обновилось
 
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
