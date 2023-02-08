@@ -91,29 +91,29 @@ public class ChessBoardAttackConsole {
 
     }
 
-    private static boolean readCoordinates() throws IOException {
+    private static boolean playRound() throws IOException {
+        do {
+            System.out.println("Введиде на экран координаты в шахматной нотации");
+            String buffer = SCANNER.nextLine().toUpperCase();
+            int coordX = (int) buffer.charAt(0);
+            coordX -= 65;
+            int coordY = Integer.parseInt(buffer.substring(1)) - 1;
+        } while (!isCellValid(coordX, coordY));
 
-        System.out.println("Введиде на экран координаты в шахматной нотации");
-        String buffer = SCANNER.nextLine().toUpperCase();
-        int coordX = (int) buffer.charAt(0);
-        coordX -= 65;
-        int coordY = Integer.parseInt(buffer.substring(1))-1;
-
-        if (isCellEmpty(coordY, coordX) && isCellValid(coordY, coordX)){
-            chessBoard[coordY][coordX] = DOT_OPEN;
+        if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
+            chessBoard[coordX][coordY] = DOT_OPEN;
+            return true;
         } else {
             // просто поставить печать "вы проиграли" - пока так
-            theEnd();
+            System.out.println("Вы проиграли");
+            return false;
         }
-        printBoard(true);
-        return (isCellOpen(coordY, coordX));
     }
 
     // Процедура лишена смысла, вывести можно и в цикле.
     // убрать, сейчас просто тестируем ввод и проверку координат
-    private static void theEnd(){
-        System.out.println("Вы проиграли");
-    }
+    // Процедура удалена, вывод переннесен в цикл.
+
 
     private static void ifReadCoordinates() throws IOException {
         if(readCoordinates()){
@@ -125,7 +125,12 @@ public class ChessBoardAttackConsole {
         initBoard(10, 10, 6);
         printBoard(true);
         printBoard(false);
-        ifReadCoordinates();
+
+        while (playRound()){
+            printBoard(true);
+            printBoard(false);
+        }
+        System.out.println("Игра окончена");
 
 
 
