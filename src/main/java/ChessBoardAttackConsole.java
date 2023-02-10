@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 // Убираем все тесты, работаем :)
 //111
+// 22222
+
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
     private static final char[] FIGURES = {'K','Q','B','B','N','N','R','R','P','P','P','P','P','P','P','P'};
