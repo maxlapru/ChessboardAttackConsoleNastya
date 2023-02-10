@@ -93,12 +93,13 @@ public class ChessBoardAttackConsole {
     }
 
     private static boolean playRound() throws IOException {
+        int coordX, coordY;
         do {
             System.out.println("Введиде на экран координаты в шахматной нотации");
             String buffer = SCANNER.nextLine().toUpperCase();
-            int coordX = (int) buffer.charAt(0);
+            coordX = (int) buffer.charAt(0);
             coordX -= 65;
-            int coordY = Integer.parseInt(buffer.substring(1)) - 1;
+            coordY = Integer.parseInt(buffer.substring(1)) - 1;
         } while (!isCellValid(coordX, coordY));
 
         if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
@@ -116,11 +117,7 @@ public class ChessBoardAttackConsole {
     // Процедура удалена, вывод переннесен в цикл.
 
 
-    private static void ifReadCoordinates() throws IOException {
-        if(readCoordinates()){
-            readCoordinates();
-        }
-    }
+
 
     public static void main(String... args) throws IOException {
         initBoard(10, 10, 6);
