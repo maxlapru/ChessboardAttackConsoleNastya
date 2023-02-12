@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-// Убираем все тесты, работаем :)
+// 12.02 - Немного почистил код, убран пучтые строки внутри процедур, так приятнее читать код
 
 
 public class ChessBoardAttackConsole {
@@ -29,9 +29,7 @@ public class ChessBoardAttackConsole {
 
     private static void printBoard(boolean openFigures){
         DecimalFormat dF = new DecimalFormat("00");
-
         printHeaderFooter();
-
         for(int i =(chessBoardX-1); i>=0; i--){
             System.out.print(dF.format(i+1));
             System.out.print("|");
@@ -112,25 +110,15 @@ public class ChessBoardAttackConsole {
         }
     }
 
-    // Процедура лишена смысла, вывести можно и в цикле.
-    // убрать, сейчас просто тестируем ввод и проверку координат
-    // Процедура удалена, вывод переннесен в цикл.
-
-
-
 
     public static void main(String... args) throws IOException {
         initBoard(10, 10, 6);
         printBoard(true);
         printBoard(false);
-
         while (playRound()){
             printBoard(true);
             printBoard(false);
         }
         System.out.println("Игра окончена");
-
-
-
     }
 }
