@@ -92,6 +92,7 @@ public class ChessBoardAttackConsole {
 
     private static boolean playRound() throws IOException {
         int coordX, coordY;
+        boolean figureFound;
         do {
             System.out.println("Введиде на экран координаты в шахматной нотации");
             String buffer = SCANNER.nextLine().toUpperCase();
@@ -112,7 +113,7 @@ public class ChessBoardAttackConsole {
 
 
     public static void main(String... args) throws IOException {
-        initBoard(10, 10, 6);
+        initBoard(10, 10, 2);
         printBoard(true);
         printBoard(false);
         while (playRound()){
