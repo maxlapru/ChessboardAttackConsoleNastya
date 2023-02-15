@@ -93,13 +93,23 @@ public class ChessBoardAttackConsole {
     private static boolean playRound() throws IOException {
         int coordX, coordY;
         boolean figureFound;
+
         do {
+            figureFound = false;
             System.out.println("Введиде на экран координаты в шахматной нотации");
             String buffer = SCANNER.nextLine().toUpperCase();
+            if(buffer.charAt(0) == '!'){
+                figureFound = true;
+                buffer = buffer.substring(1);
+            }
             coordX = (int) buffer.charAt(0);
             coordX -= 65;
             coordY = Integer.parseInt(buffer.substring(1)) - 1;
         } while (!isCellValid(coordX, coordY));
+        if(figureFound){
+            System.out.printf("Этот ход является ходом снятия фигуры %d, %d %n", coordX, coordY );
+            return true;
+        }
 
         if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
             chessBoard[coordX][coordY] = DOT_OPEN;
