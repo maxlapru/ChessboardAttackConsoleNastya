@@ -95,11 +95,10 @@ public class ChessBoardAttackConsole {
         boolean figureFound;
 
         do {
-            figureFound = false;
             System.out.println("Введиде на экран координаты в шахматной нотации");
             String buffer = SCANNER.nextLine().toUpperCase();
-            if(buffer.charAt(0) == '!'){
-                figureFound = true;
+            figureFound = (buffer.charAt(0) == '!');
+            if(figureFound){
                 buffer = buffer.substring(1);
             }
             coordX = (int) buffer.charAt(0);
