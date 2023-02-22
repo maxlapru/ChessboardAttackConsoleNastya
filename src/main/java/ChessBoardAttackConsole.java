@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
+    private static int countFiguresOnBoard;
+    private static int countAtTemps;
     private static final char[] FIGURES = {'K','Q','B','B','N','N','R','R','P','P','P','P','P','P','P','P'};
     private static final char DOT_EMPTY = '*';
     private static final char DOT_OPEN = ' ';
@@ -52,6 +54,7 @@ public class ChessBoardAttackConsole {
     }
 
     private static void chessPieces(int k){
+        countFiguresOnBoard = k*16;
         for(int i=1; i<=k; i++) {
             for (int f = 0; f < FIGURES.length; f++) {
                 int x, y;
@@ -73,7 +76,8 @@ public class ChessBoardAttackConsole {
     private static boolean isCellValid(int x,int y){
         return (x>=0 && y>=0 && x<chessBoardX && y<chessBoardY);
     }
-    private static void initBoard(int x, int y, int k){
+    private static void initBoard(int x, int y, int k, int at){
+        countAtTemps = at;
         if((x-1)*y>=k*16) {
             chessBoard = new char[x][y];
             chessBoardX = x;
@@ -85,7 +89,7 @@ public class ChessBoardAttackConsole {
         } else {
             System.out.println("Количество комплектов не вмещается на доске, будет размещенно максимально большое количство комплектов для данной строки");
             k = ((x-1)*y)/16;
-            initBoard (x, y, k);
+            initBoard (x, y, k, at);
         }
 
     }
@@ -122,7 +126,7 @@ public class ChessBoardAttackConsole {
 
 
     public static void main(String... args) throws IOException {
-        initBoard(10, 10, 2);
+        initBoard(10, 10, 2, 5);
         printBoard(true);
         printBoard(false);
         while (playRound()){
