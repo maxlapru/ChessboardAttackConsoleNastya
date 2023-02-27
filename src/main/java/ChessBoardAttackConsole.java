@@ -112,7 +112,7 @@ public class ChessBoardAttackConsole {
         } while (!isCellValid(coordX, coordY));
         if(figureFound){
             System.out.printf("Этот ход является ходом снятия фигуры %d, %d %n", coordX, coordY );
-            return true;
+            checkFigureFound(coordX, coordY);
         }
 
         if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
@@ -122,6 +122,34 @@ public class ChessBoardAttackConsole {
             // просто поставить печать "вы проиграли" - пока так
             System.out.println("Вы проиграли");
             return false;
+        }
+    }
+    private static boolean checkFigureFound(int x, int y){
+        if(isCellOpen(x, y)){
+            System.out.println("Эта ячейка уже открыта");
+            return true;
+        }
+        if (isCellEmpty(x, y)){
+            countAtTemps--  ;
+            if(countAtTemps == 0){
+                System.out.println("У Вас все попытки закончились, Вы проиграли");
+                return false;
+            } else {
+                System.out.printf("У Вас осталось %d попыток %n", countAtTemps );
+                return true;
+            }
+        } else {
+            System.out.println("В этой ячейке была фигура, сейчас она снята");
+            countFiguresOnBoard--;
+            chessBoard[x][y] = DOT_OPEN;
+
+        }
+        if (countFiguresOnBoard == 0){
+            System.out.println("Фигур больше не осталось, Вы выиграли");
+            return false;
+        } else {
+            System.out.printf("На доске осталось %d фигур %n", countFiguresOnBoard);
+            return true;
         }
     }
 
