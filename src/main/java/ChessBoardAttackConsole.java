@@ -106,9 +106,9 @@ public class ChessBoardAttackConsole {
                 figureFound = true;
                 buffer = buffer.substring(1);
             }
-            coordX = (int) buffer.charAt(0);
-            coordX -= 65;
-            coordY = Integer.parseInt(buffer.substring(1)) - 1;
+            coordY = (int) buffer.charAt(0);
+            coordY -= 65;
+            coordX = Integer.parseInt(buffer.substring(1)) - 1;
         } while (!isCellValid(coordX, coordY));
         if(figureFound){
             System.out.printf("Этот ход является ходом снятия фигуры %d, %d %n", coordX, coordY );
