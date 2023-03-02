@@ -105,13 +105,13 @@ public class ChessBoardAttackConsole {
             if(figureFound){
                 buffer = buffer.substring(1);
             }
-            coordX = (int) buffer.charAt(0);
-            coordX -= 65;
-            coordY = Integer.parseInt(buffer.substring(1)) - 1;
+            coordY = (int) buffer.charAt(0);
+            coordY -= 65;
+            coordX = Integer.parseInt(buffer.substring(1)) - 1;
         } while (!isCellValid(coordX, coordY));
         if(figureFound){
             System.out.printf("Этот ход является ходом снятия фигуры %d, %d %n", coordX, coordY );
-            return true;
+            checkFigureFound(coordX, coordY);
         }
 
         if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
@@ -123,6 +123,61 @@ public class ChessBoardAttackConsole {
             return false;
         }
     }
+    private static boolean checkFigureFound(int x, int y){
+        if(isCellOpen(x, y)){
+            System.out.println("Эта ячейка уже открыта");
+            return true;
+        }
+        if (isCellEmpty(x, y)){
+            countAtTemps--  ;
+            if(countAtTemps == 0){
+                System.out.println("У Вас все попытки закончились, Вы проиграли");
+                return false;
+            } else {
+                System.out.printf("У Вас осталось %d попыток %n", countAtTemps );
+                return true;
+            }
+        } else {
+            System.out.printf("В этой ячейке была фигура %s, сейчас она снята %n", nameFigures(x, y));
+            countFiguresOnBoard--;
+            chessBoard[x][y] = DOT_OPEN;
+
+        }
+        if (countFiguresOnBoard == 0){
+            System.out.println("Фигур больше не осталось, Вы выиграли");
+            return false;
+        } else {
+            System.out.printf("На доске осталось %d фигур %n", countFiguresOnBoard);
+            return true;
+        }
+    }
+
+    private static String nameFigures(int x, int y){
+        String name = null;
+
+        switch (chessBoard[x][y]){
+            case ('K'):
+                name = "Король";
+                break;
+            case ('Q'):
+                name = "Ферзь";
+                break;
+            case ('R'):
+                name = "Ладья";
+                break;
+            case ('N'):
+                name = "Конь";
+                break;
+            case ('B'):
+                name = "Слон";
+                break;
+            case ('P'):
+                name = "Пешка";
+                break;
+        }
+        return name;
+    }
+
 
 
     public static void main(String... args) throws IOException {
