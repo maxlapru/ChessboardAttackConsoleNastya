@@ -99,11 +99,10 @@ public class ChessBoardAttackConsole {
         boolean figureFound;
 
         do {
-            figureFound = false;
             System.out.println("Введиде на экран координаты в шахматной нотации");
             String buffer = SCANNER.nextLine().toUpperCase();
-            if(buffer.charAt(0) == '!'){
-                figureFound = true;
+            figureFound = (buffer.charAt(0) == '!');
+            if(figureFound){
                 buffer = buffer.substring(1);
             }
             coordY = (int) buffer.charAt(0);
@@ -112,11 +111,13 @@ public class ChessBoardAttackConsole {
         } while (!isCellValid(coordX, coordY));
         if(figureFound){
             System.out.printf("Этот ход является ходом снятия фигуры %d, %d %n", coordX, coordY );
-            checkFigureFound(coordX, coordY);
+            return checkFigureFound(coordX, coordY);
         }
 
         if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
             chessBoard[coordX][coordY] = DOT_OPEN;
+            // Выводим список атакующих фигур
+            printAttachedFigures(coordX, coordY);
             return true;
         } else {
             // просто поставить печать "вы проиграли" - пока так
@@ -139,7 +140,7 @@ public class ChessBoardAttackConsole {
                 return true;
             }
         } else {
-            System.out.println("В этой ячейке была фигура, сейчас она снята");
+            System.out.printf("В этой ячейке была фигура %s, сейчас она снята %n", nameFigures(x, y));
             countFiguresOnBoard--;
             chessBoard[x][y] = DOT_OPEN;
 
@@ -153,14 +154,72 @@ public class ChessBoardAttackConsole {
         }
     }
 
+    private static String nameFigures(int x, int y){
+        String name = null;
+
+        switch (chessBoard[x][y]){
+            case ('K'):
+                name = "Король";
+                break;
+            case ('Q'):
+                name = "Ферзь";
+                break;
+            case ('R'):
+                name = "Ладья";
+                break;
+            case ('N'):
+                name = "Конь";
+                break;
+            case ('B'):
+                name = "Слон";
+                break;
+            case ('P'):
+                name = "Пешка";
+                break;
+        }
+        return name;
+    }
+
+    private static void printAttachedFigures(int x,int y){
+        String attachedFigures="";
+        for (int i=0;i<chessBoardX;i++){
+            for (int j=0;j<chessBoardY;j++){
+                // на каждое поле проверяем атакует ли
+                char currentFieldData = chessBoard[i][j];
+                boolean currentAttached = false;
+                switch (currentFieldData){
+                    case ('K'):
+                        currentAttached = isKingAttached(x,y,i,j);
+                        break;
+                    case ('P'):
+                        currentAttached = isPawnAttached(x,y,i,j);
+                        break;
+                    default:
+                        break;
+                }
+                if (currentAttached) {
+                    attachedFigures =  attachedFigures + ","+ nameFigures(i,j);
+                }
+            }
+            if (attachedFigures!="") {attachedFigures = attachedFigures.substring(1);};
+        }
+    }
+
+    private static boolean isKingAttached(int x,int y,int fx,int fy){
+        return (fx==fy);
+    }
+
+    private static boolean isPawnAttached(int x,int y,int fx,int fy){
+        return (fx==fy-1);
+    }
 
     public static void main(String... args) throws IOException {
         initBoard(10, 10, 2, 5);
         printBoard(true);
-        printBoard(false);
+        //printBoard(false);
         while (playRound()){
             printBoard(true);
-            printBoard(false);
+            //printBoard(false);
         }
         System.out.println("Игра окончена");
     }
