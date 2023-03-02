@@ -201,16 +201,20 @@ public class ChessBoardAttackConsole {
                     attachedFigures =  attachedFigures + ","+ nameFigures(i,j);
                 }
             }
-            if (attachedFigures!="") {attachedFigures = attachedFigures.substring(1);};
         }
+        if (attachedFigures!="") {
+            attachedFigures = attachedFigures.substring(1);
+            System.out.println("Заданное поле атакуют " + attachedFigures);
+        };
+
     }
 
     private static boolean isKingAttached(int x,int y,int fx,int fy){
-        return (fx==fy);
+        return (Math.abs(fx-fy)<=1);
     }
 
     private static boolean isPawnAttached(int x,int y,int fx,int fy){
-        return (fx==fy-1);
+        return (fx==fy);
     }
 
     public static void main(String... args) throws IOException {
