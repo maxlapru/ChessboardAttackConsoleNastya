@@ -117,6 +117,7 @@ public class ChessBoardAttackConsole {
 
         if (isCellEmpty(coordX, coordY) || isCellOpen(coordX, coordY)){
             chessBoard[coordX][coordY] = DOT_OPEN;
+            isAttached(coordX, coordY);
             return true;
         } else {
             // просто поставить печать "вы проиграли" - пока так
@@ -178,6 +179,26 @@ public class ChessBoardAttackConsole {
         }
         return name;
     }
+
+    public static void isAttached(int x,int y){
+        Knight(x, y);
+    }
+
+    public static void Knight(int x, int y){
+        if (chessBoard[x][y] == 'N'
+                || chessBoard[x-1][y-2]== 'N'
+                || chessBoard[x-2][y-1]== 'N'
+                || chessBoard[x-2][y+1]== 'N'
+                || chessBoard[x-1][y+2]== 'N'
+                || chessBoard[x+1][y+2]== 'N'
+                || chessBoard[x+2][y+1]== 'N'
+                || chessBoard[x+2][y-1]== 'N'
+                || chessBoard[x+1][y-2]== 'N'){
+            System.out.println("Бьет конь");
+        }
+    }
+
+
 
 
 
