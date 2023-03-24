@@ -7,6 +7,7 @@ import java.util.Scanner;
 // 12.02 - Немного почистил код, убран пучтые строки внутри процедур, так приятнее читать код
 
 
+
 public class ChessBoardAttackConsole {
     private static char[][] chessBoard;
     private static int countFiguresOnBoard;
