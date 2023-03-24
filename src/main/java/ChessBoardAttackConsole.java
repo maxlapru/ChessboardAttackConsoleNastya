@@ -183,6 +183,8 @@ public class ChessBoardAttackConsole {
 
     public static void isAttached(int x,int y){
         Knight(x, y);
+        King(x, y);
+        Pawn(x, y);
     }
 
     public static void Knight(int x, int y){
@@ -198,6 +200,29 @@ public class ChessBoardAttackConsole {
         }
     }
 
+    public static void King(int x, int y) {
+        if ( chessBoard[x][y+1]== 'K'
+                || chessBoard[x+1][y+1]== 'K'
+                || chessBoard[x+1][y]== 'K'
+                || chessBoard[x+1][y-1]== 'K'
+                || chessBoard[x][y-1]== 'K'
+                || chessBoard[x-1][y-1]== 'K'
+                || chessBoard[x-1][y]== 'K'
+                || chessBoard[x-1][y+1]== 'K'
+        )
+        {
+            System.out.println("Бьет король");
+        }
+    }
+    public static void Pawn(int x, int y) {
+        if ( chessBoard[x+1][y-1]== 'K'
+                || chessBoard[x+1][y+1]== 'K'
+        )
+        {
+            System.out.println("Бьет пешка");
+        }
+    }
+
 
 
 
@@ -205,10 +230,10 @@ public class ChessBoardAttackConsole {
     public static void main(String... args) throws IOException {
         initBoard(10, 10, 2, 5);
         printBoard(true);
-        printBoard(false);
+      //  printBoard(false);
         while (playRound()){
             printBoard(true);
-            printBoard(false);
+          //  printBoard(false);
         }
         System.out.println("Игра окончена");
     }
