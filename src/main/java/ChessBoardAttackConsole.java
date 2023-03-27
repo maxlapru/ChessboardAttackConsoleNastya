@@ -145,7 +145,7 @@ public class ChessBoardAttackConsole {
                 return true;
             }
         } else {
-            System.out.printf("В этой ячейке была фигура %s, сейчас она снята %n", nameFigures(x, y));
+            System.out.printf("В этой ячейке была фигура %s, сейчас она снята %n", nameFigures(x, y,' '));
             countFiguresOnBoard--;
             chessBoard[x][y] = DOT_OPEN;
 
@@ -159,10 +159,12 @@ public class ChessBoardAttackConsole {
         }
     }
 
-    private static String nameFigures(int x, int y){
+    private static String nameFigures(int x, int y,char nameFigure){
         String name = null;
-
-        switch (chessBoard[x][y]){
+        if (x>=0 && y>=0){
+            nameFigure=chessBoard[x][y];
+        }
+        switch (nameFigure){
             case ('K'):
                 name = "Король";
                 break;
