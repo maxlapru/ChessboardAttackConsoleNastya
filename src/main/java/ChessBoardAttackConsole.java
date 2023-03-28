@@ -188,45 +188,17 @@ public class ChessBoardAttackConsole {
     }
 
     public static void isAttached(int x,int y){
-        Knight(x, y);
-        King(x, y);
-        Pawn(x, y);
-    }
-
-    public static void Knight(int x, int y){
-//        if ( chessBoard[x-1][y-2]== 'N'
-//                || chessBoard[x-2][y-1]== 'N'
-//                || chessBoard[x-2][y+1]== 'N'
-//                || chessBoard[x-1][y+2]== 'N'
-//                || chessBoard[x+1][y+2]== 'N'
-//                || chessBoard[x+2][y+1]== 'N'
-//                || chessBoard[x+2][y-1]== 'N'
-//                || chessBoard[x+1][y-2]== 'N'){
-//            System.out.println("Бьет конь");
-//        }
-       if (isCellValid(x-1,y-2) ) { if (chessBoard[x-1][y-2]== 'N') {System.out.println("Бьет конь");};};
-       if (isCellValid(x-2,y-1) && chessBoard[x-2][y-1]== 'N') {System.out.println("Бьет конь");};
-       if (isCellValid(x-2,y+1) && chessBoard[x-2][y+1]== 'N') {System.out.println("Бьет конь");};
-       if (isCellValid(x-1,y+2) && chessBoard[x-1][y+2]== 'N') {System.out.println("Бьет конь");};
-       if (isCellValid(x+1,y+2) && chessBoard[x+1][y+2]== 'N') {System.out.println("Бьет конь");};
-       if (isCellValid(x+2,y+1) && chessBoard[x+2][y+1]== 'N') {System.out.println("Бьет конь");};
-       if (isCellValid(x+2,y-1) && chessBoard[x+2][y-1]== 'N') {System.out.println("Бьет конь");};
-       if (isCellValid(x+1,y-2) && chessBoard[x+1][y-2]== 'N') {System.out.println("Бьет конь");};
-    }
-
-    public static void King(int x, int y) {
-//        if ( chessBoard[x][y+1]== 'K'
-//                || chessBoard[x+1][y+1]== 'K'
-//                || chessBoard[x+1][y]== 'K'
-//                || chessBoard[x+1][y-1]== 'K'
-//                || chessBoard[x][y-1]== 'K'
-//                || chessBoard[x-1][y-1]== 'K'
-//                || chessBoard[x-1][y]== 'K'
-//                || chessBoard[x-1][y+1]== 'K'
-//        )
-//        {
-//            System.out.println("Бьет король");
-//        }
+//        Knight(x, y);
+//        King(x, y);
+//        Pawn(x, y);
+        if (isCellValid(x-1,y-2) ) { if (chessBoard[x-1][y-2]== 'N') {System.out.println("Бьет конь");};};
+        if (isCellValid(x-2,y-1) && chessBoard[x-2][y-1]== 'N') {System.out.println("Бьет конь");};
+        if (isCellValid(x-2,y+1) && chessBoard[x-2][y+1]== 'N') {System.out.println("Бьет конь");};
+        if (isCellValid(x-1,y+2) && chessBoard[x-1][y+2]== 'N') {System.out.println("Бьет конь");};
+        if (isCellValid(x+1,y+2) && chessBoard[x+1][y+2]== 'N') {System.out.println("Бьет конь");};
+        if (isCellValid(x+2,y+1) && chessBoard[x+2][y+1]== 'N') {System.out.println("Бьет конь");};
+        if (isCellValid(x+2,y-1) && chessBoard[x+2][y-1]== 'N') {System.out.println("Бьет конь");};
+        if (isCellValid(x+1,y-2) && chessBoard[x+1][y-2]== 'N') {System.out.println("Бьет конь");};
         if (isCellValid(x,y+1) && chessBoard[x][y+1]== 'K') {System.out.println("Бьет король");};
         if (isCellValid(x+1,y+1) && chessBoard[x+1][y+1]== 'K') {System.out.println("Бьет король");};
         if (isCellValid(x+1,y) && chessBoard[x+1][y]== 'K') {System.out.println("Бьет король");};
@@ -235,18 +207,46 @@ public class ChessBoardAttackConsole {
         if (isCellValid(x-1,y-1) && chessBoard[x-1][y-1]== 'K') {System.out.println("Бьет король");};
         if (isCellValid(x-1,y) && chessBoard[x-1][y]== 'K') {System.out.println("Бьет король");};
         if (isCellValid(x-1,y+1) && chessBoard[x-1][y+1]== 'K') {System.out.println("Бьет король");};
-    }
-
-    public static void Pawn(int x, int y) {
-//        if ( chessBoard[x+1][y-1]== 'K'
-//                || chessBoard[x+1][y+1]== 'K'
-//        )
-//        {
-//            System.out.println("Бьет пешка");
-//        }
         if (isCellValid(x+1,y-1) && chessBoard[x+1][y-1]== 'P') {System.out.println("Бьет пешка");};
         if (isCellValid(x+1,y+1) && chessBoard[x+1][y+1]== 'P') {System.out.println("Бьет пешка");};
     }
+
+//    public static void Knight(int x, int y){
+////        if ( chessBoard[x-1][y-2]== 'N'
+////                || chessBoard[x-2][y-1]== 'N'
+////                || chessBoard[x-2][y+1]== 'N'
+////                || chessBoard[x-1][y+2]== 'N'
+////                || chessBoard[x+1][y+2]== 'N'
+////                || chessBoard[x+2][y+1]== 'N'
+////                || chessBoard[x+2][y-1]== 'N'
+////                || chessBoard[x+1][y-2]== 'N'){
+////            System.out.println("Бьет конь");
+////        }
+//    }
+
+//    public static void King(int x, int y) {
+////        if ( chessBoard[x][y+1]== 'K'
+////                || chessBoard[x+1][y+1]== 'K'
+////                || chessBoard[x+1][y]== 'K'
+////                || chessBoard[x+1][y-1]== 'K'
+////                || chessBoard[x][y-1]== 'K'
+////                || chessBoard[x-1][y-1]== 'K'
+////                || chessBoard[x-1][y]== 'K'
+////                || chessBoard[x-1][y+1]== 'K'
+////        )
+////        {
+////            System.out.println("Бьет король");
+////        }
+//    }
+
+//    public static void Pawn(int x, int y) {
+////        if ( chessBoard[x+1][y-1]== 'K'
+////                || chessBoard[x+1][y+1]== 'K'
+////        )
+////        {
+////            System.out.println("Бьет пешка");
+////        }
+//    }
 
     public static void main(String... args) throws IOException {
         initBoard(10, 10, 2, 5);
