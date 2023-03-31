@@ -188,20 +188,18 @@ public class ChessBoardAttackConsole {
     }
 
     public static void isAttached(int x,int y){
-
-
         for(int i=0; i<POINTERS.length; i++){
             int dX = POINTERS[i][0];
             int dY = POINTERS[i][1];
             char figureChar = POINTERS_FIGURES[i];
             if (isCellValid(x+dX,y+dY) && chessBoard[x+dX][y+dY]== figureChar) {System.out.println("Бьет " + nameFigures(-1, -1, figureChar)); };
-
-
         }
-
     }
 
-
+    public static void lineCheck(int x,int y,int dx,int dy,char figure1,char figure2){
+        System.out.printf("x=%d , y=%d ,dx=%d , dy=%d , figure1=%c , figure2=%c %n",x,y,dx,dy,figure1,figure2);
+        // Здесь пишем алгоритс и на каждом шаге тоже выводим переменные
+    }
 
     public static void main(String... args) throws IOException {
         initBoard(10, 10, 2, 5);
