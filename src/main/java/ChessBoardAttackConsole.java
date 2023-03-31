@@ -104,11 +104,12 @@ public class ChessBoardAttackConsole {
         boolean figureFound;
 
         do {
-            figureFound = false;
             System.out.println("Введиде на экран координаты в шахматной нотации");
             String buffer = SCANNER.nextLine().toUpperCase();
-            if(buffer.charAt(0) == '!'){
-                figureFound = true;
+            // #XXYYdxdy12
+            // #0202-1-1BQ
+            figureFound=(buffer.charAt(0) == '!')
+            if (figureFound){
                 buffer = buffer.substring(1);
             }
             coordY = (int) buffer.charAt(0);
