@@ -108,7 +108,7 @@ public class ChessBoardAttackConsole {
             String buffer = SCANNER.nextLine().toUpperCase();
             // #XXYYdxdy12
             // #0202-1-1BQ
-            figureFound=(buffer.charAt(0) == '!')
+            figureFound=(buffer.charAt(0) == '!');
             if (figureFound){
                 buffer = buffer.substring(1);
             }
