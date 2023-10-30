@@ -198,7 +198,7 @@ public class ChessBoardAttackConsole {
 
     public static void lineCheck(int x,int y,int dx,int dy,char figure1,char figure2){
         System.out.printf("x=%d , y=%d ,dx=%d , dy=%d , figure1=%c , figure2=%c %n",x,y,dx,dy,figure1,figure2);
-        // Здесь пишем алгоритс и на каждом шаге тоже выводим переменные
+        // Здесь пишем алгоритм и на каждом шаге тоже выводим переменные
     }
 
     public static void main(String... args) throws IOException {
