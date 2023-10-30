@@ -13,7 +13,6 @@ public class ChessBoardAttackConsole {
     private static int countFiguresOnBoard;
     private static int countAtTemps;
     private static final char[] FIGURES = {'K','Q','B','B','N','N','R','R','P','P','P','P','P','P','P','P'};
-
     private static final int[][] POINTERS = {{-1,-2},{-2,-1},{-2,1},{-1,2},{1,2},{2,1},{2,-1},{1,-2},{0,1},{1,1},{1,0},{1,-1},{0,-1},{-1,-1},{-1,0},{-1,1},{1,1},{1,-1}};
     private static final char[] POINTERS_FIGURES = {'N','N','N','N','N','N','N','N','K','K','K','K','K','K','K','K','P','P'};
 
